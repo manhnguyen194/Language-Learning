@@ -1,0 +1,23 @@
+.layout {
+  display: flex;
+}
+
+/* content area */
+.main-content {
+  margin-left: 220px;
+  padding: 20px;
+  width: 100%;
+  transition: 0.3s;
+}
+
+/* collapsed sidebar support */
+.sidebar.collapsed + .main-content {
+  margin-left: 70px;
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+  }
+}

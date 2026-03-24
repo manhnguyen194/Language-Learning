@@ -4,7 +4,10 @@ export const getLessons = async (courseId) => {
   const res = await fetch(`${API}/${courseId}`)
   return res.json()
 }
-
+export const getLessonById = async (id) => {
+  const res = await fetch(`${API}/single/${id}`)
+  return res.json()
+}
 export const createLesson = async (lesson) => {
   const token = localStorage.getItem("token")
 
@@ -19,7 +22,20 @@ export const createLesson = async (lesson) => {
 
   return res.json()
 }
+export const updateLesson = async (id, lesson) => {
+  const token = localStorage.getItem("token")
 
+  const res = await fetch(`${API}/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(lesson),
+  })
+
+  return res.json()
+}
 export const deleteLesson = async (id) => {
   const token = localStorage.getItem("token")
 

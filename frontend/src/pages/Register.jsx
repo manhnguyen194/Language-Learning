@@ -1,8 +1,8 @@
 import { useState } from "react"
 import { registerUser } from "../services/authService"
 import { Link, useNavigate } from "react-router-dom"
-import "../styles/Register.css"
 
+import "../styles/global.css"
 function Register() {
 
   const navigate = useNavigate()
@@ -47,14 +47,14 @@ function Register() {
 
   return (
 
-    <div className="register-container">
+    <div className="page-center">
 
-      <form className="register-form" onSubmit={handleSubmit}>
+      <form className="card" onSubmit={handleSubmit}>
 
-        <h2 className="register-title">Register</h2>
-        <p className="register-title">Please enter your information</p>
+        <h2 className="title">Register</h2>
+        <p className="subtitle">Please enter your information</p>
         <input
-          className="register-input"
+          className="input"
           type="text"
           placeholder="Name"
           value={name}
@@ -62,7 +62,7 @@ function Register() {
         />
 
         <input
-          className="register-input"
+          className="input"
           type="email"
           placeholder="Email"
           value={email}
@@ -70,7 +70,7 @@ function Register() {
         />
 
         <input
-          className="register-input"
+          className="input"
           type="password"
           placeholder="Password"
           value={password}
@@ -78,22 +78,22 @@ function Register() {
         />
 
         <input
-          className="register-input"
+          className="input"
           type="password"
           placeholder="Confirm Password"
           value={confirmPassword}
           onChange={(e)=>setConfirmPassword(e.target.value)}
         />
 
-        {message && <p className="register-message">{message}</p>}
+        {message && <p className="error">{message}</p>}
 
-        <button className="register-button" type="submit">
+        <button className="btn btn-primary" type="submit">
           Register
         </button>
 
-        <p className="login-redirect">
+        <p className="text-center">
           Already have an account?
-          <Link className="login-link" to="/"> Login</Link>
+          <Link className="link" to="/"> Login</Link>
         </p>
 
       </form>

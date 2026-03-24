@@ -1,0 +1,87 @@
+.lessons {
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centers horizontally */
+}
+.lessons > * {
+  width: 100%;
+  max-width: 900px; /* controls center width */
+}
+/* ===== FORM ===== */
+.lesson-form {
+  width: 100%;
+  max-width: 700px; /* slightly narrower form */
+}
+
+.lesson-form textarea {
+  min-height: 80px;
+}
+
+/* ===== QUESTION BOX ===== */
+.question-box {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #333;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+/* ===== LIST ===== */
+.lesson-list {
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.lesson-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ===== DELETE BUTTON ===== */
+.delete-btn {
+  border: 2px solid #ef4444;
+  color: #ef4444;
+  background: transparent;
+}
+
+.delete-btn:hover {
+  background: #ef4444;
+  color: white;
+}
+
+/* ===== PREVIEW ===== */
+.preview {
+  color: white;
+}
+
+.question-preview {
+  margin-top: 10px;
+}
+
+.input {
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  background: transparent;
+  border: 1.5px solid #fff;
+  border-radius: 15px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 15px; /* 🔥 bigger text */
+}
+
+.input::placeholder {
+  color: #A5A5A5;
+  font-weight: 600;
+  font-size: 14px; /* 🔥 bigger placeholder */
+}
+textarea.input {
+  min-height: 100px;
+  resize: vertical;
+}

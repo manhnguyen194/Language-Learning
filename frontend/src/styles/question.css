@@ -1,0 +1,46 @@
+.question {
+  color: white;
+}
+
+.question-title {
+  margin-bottom: 15px;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* base */
+.option {
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  background: #2a2b33;
+  color: white;
+  transition: 0.2s;
+}
+
+/* hover */
+.option:hover {
+  background: #3a3b44;
+}
+
+/* correct */
+.option.correct {
+  background: #48cb27;
+  color: black;
+}
+
+/* wrong */
+.option.wrong {
+  background: #ef4444;
+  color: white;
+}
+
+/* disabled */
+.option.disabled {
+  opacity: 0.6;
+}

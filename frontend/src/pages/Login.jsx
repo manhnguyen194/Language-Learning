@@ -2,7 +2,8 @@ import { useState, useContext } from "react"
 import { loginUser } from "../services/authService"
 import { useNavigate, Link } from "react-router-dom"
 import { AuthContext } from "../contexts/AuthContext"
-import "../styles/Login.css"
+
+import "../styles/global.css"
 import { FcGoogle } from "react-icons/fc"
 
 function Login() {
@@ -35,14 +36,14 @@ function Login() {
   }
 
   return (
-    <div className="login-container">
-      <form className="login-form" onSubmit={handleSubmit}>
+    <div className="page-center">
+      <form className="card" onSubmit={handleSubmit}>
 
-        <h2 className="login-title">Login</h2>
-        <p className="login-title">Please enter your Username and your Password</p>
+        <h2 className="title">Login</h2>
+        <p className="subtitle">Please enter your Username and your Password</p>
 
         <input
-          className="login-input"
+          className="input"
           type="email"
           placeholder="Username"
           value={email}
@@ -50,21 +51,21 @@ function Login() {
         />
 
         <input
-          className="login-input"
+          className="input"
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e)=>setPassword(e.target.value)}
         />
 
-        {error && <p className="error-message">{error}</p>}
+        {error && <p className="error">{error}</p>}
 
-        <button className="login-button" type="submit">
+        <button className="btn btn-primary" type="submit">
           Login
         </button>
 
         <button
-          className="google-button"
+          className="btn btn-google"
           type="button"
           onClick={handleGoogleLogin}
         >
@@ -72,9 +73,9 @@ function Login() {
           Or, Sign-in with Google
         </button>
 
-        <p className="register-text">
+        <p className="text-center">
           Not a member yet? 
-          <Link className="register-link" to="/register">
+          <Link className="link" to="/register">
             {" "}Register!
           </Link>
         </p>

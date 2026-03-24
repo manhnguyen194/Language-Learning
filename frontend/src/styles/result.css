@@ -1,0 +1,27 @@
+.result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.result-card {
+  text-align: center;
+}
+
+.score {
+  font-size: 22px;
+  margin: 10px 0;
+}
+
+.perfect {
+  color: #48cb27;
+  font-weight: bold;
+}
+
+.result-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}

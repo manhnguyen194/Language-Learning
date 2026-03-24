@@ -1,0 +1,91 @@
+/* ===== SIDEBAR ===== */
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  background: #1A1B22;
+  color: white;
+  padding: 20px;
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  transition: all 0.3s ease;
+}
+
+/* collapsed */
+.sidebar.collapsed {
+  width: 70px;
+}
+
+/* ===== LOGO ===== */
+.sidebar-logo {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+/* ===== NAV ===== */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* ===== LINK ===== */
+.sidebar-link {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 15px;
+  padding: 10px;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+
+.sidebar-link:hover {
+  background: #2a2b33;
+  color: white;
+}
+
+/* active (optional later) */
+.sidebar-link.active {
+  background: #48cb27;
+  color: black;
+}
+
+/* ===== LOGOUT ===== */
+.sidebar-logout {
+  margin-top: 20px;
+}
+
+/* reuse button */
+.sidebar button {
+  width: 100%;
+}
+
+/* ===== TOGGLE BUTTON ===== */
+.toggle-btn {
+  background: none;
+  border: 1px solid #444;
+  color: white;
+  padding: 6px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    position: fixed;
+    z-index: 1000;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+}

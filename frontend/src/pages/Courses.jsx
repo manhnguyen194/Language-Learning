@@ -1,11 +1,13 @@
 import { useEffect, useState, useContext } from "react"
 import {
   getCourses,
-  createCourse, 
+  createCourse,
   deleteCourse,
 } from "../services/courseService"
 import { AuthContext } from "../contexts/AuthContext"
 import { Link } from "react-router-dom"
+import "../styles/courses.css"
+
 function Courses() {
   const { user } = useContext(AuthContext)
   const [courses, setCourses] = useState([])
@@ -39,51 +41,69 @@ function Courses() {
     await deleteCourse(id)
     fetchCourses()
   }
-  
-  return (
-    <div>
-      <h1>Courses</h1>
 
-      {/* CREATE */}
+  return (
+    <div className="courses">
+
+      {/* HEADER */}
+      <div className="courses-header">
+        <h1>Courses</h1>
+        <p>Explore and manage your learning</p>
+      </div>
+
+      {/* ADMIN CREATE */}
       {user?.role === "admin" && (
-        <form onSubmit={handleCreate}>
-            <input
+        <form className="card create-form" onSubmit={handleCreate}>
+          <h3>Create Course</h3>
+
+          <input
+            className="input"
             placeholder="Course title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            />
+          />
 
-            <input
+          <input
+            className="input"
             placeholder="Language"
             value={language}
             onChange={(e) => setLanguage(e.target.value)}
-            />
+          />
 
-            <button type="submit">Create</button>
+          <button className="btn btn-primary" type="submit">
+            Create
+          </button>
         </form>
       )}
-      {/* LIST */}
-      <ul>
+
+      {/* COURSE LIST */}
+      <div className="course-grid">
         {courses.map((course) => (
-            <li key={course._id}>
+          <div className="card course-item" key={course._id}>
+
             <h3>{course.title}</h3>
             <p>{course.language}</p>
-            <Link to={`/courses/${course._id}`}>
-            View Lessons
-            </Link>
-            {/* 🎮 Play Game button */}
-            <Link to={`/game/${course._id}`}>
-                <button>Play {course.language} Game 🎮</button>
+
+            <Link
+              to={`/courses/${course._id}`}
+              className="btn btn-primary"
+            >
+              View Lessons
             </Link>
 
             {user?.role === "admin" && (
-                <button onClick={() => handleDelete(course._id)}>
+              <button
+                className="btn delete-btn"
+                onClick={() => handleDelete(course._id)}
+              >
                 Delete
-                </button>
+              </button>
             )}
-            </li>
+
+          </div>
         ))}
-      </ul>
+      </div>
+
     </div>
   )
 }
