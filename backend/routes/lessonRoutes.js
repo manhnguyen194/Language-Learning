@@ -4,19 +4,17 @@ const router = express.Router()
 const {
   createLesson,
   getLessonsByCourse,
-  deleteLesson
+  deleteLesson,
+  getLessonById,
+  updateLesson
 } = require("../controllers/lessonController")
 
 const auth = require("../middleware/authMiddleware")
 const admin = require("../middleware/adminMiddleware")
-
-// create lesson (admin only)
 router.post("/", auth, admin, createLesson)
-
-// get lessons of a course
+router.get("/single/:id", getLessonById)
 router.get("/:courseId", getLessonsByCourse)
-
-// delete lesson
+router.put("/:id", auth, admin, updateLesson)
 router.delete("/:id", auth, admin, deleteLesson)
 
 module.exports = router

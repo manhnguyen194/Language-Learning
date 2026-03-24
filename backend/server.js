@@ -8,8 +8,10 @@ const session = require("express-session")
 
 const authRoutes = require("./routes/authRoutes")
 const courseRoutes = require("./routes/courseRoutes")
-const createAdmin = require("./seed/adminSeed")
 const lessonRoutes = require("./routes/lessonRoutes")
+
+const createAdmin = require("./seed/adminSeed")
+const seedData = require("./seed/seedData")
 
 const app = express()
 
@@ -30,6 +32,7 @@ mongoose.connect(process.env.MONGO_URI)
   console.log("MongoDB connected")
 
   await createAdmin()
+  await seedData()
 })
 .catch(err => console.log(err))
 

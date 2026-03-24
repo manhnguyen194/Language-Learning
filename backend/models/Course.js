@@ -10,7 +10,7 @@ const courseSchema = new mongoose.Schema(
       type: String,
     },
     language: {
-      type: String, // English, Japanese, etc.
+      type: String, // English, Japanese, etc.     
       required: true,
     },
     level: {
