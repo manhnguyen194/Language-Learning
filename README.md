@@ -17,16 +17,45 @@ Google OAuth
     │
     ├── backend
     │   ├── controllers
+    |        ├── authController.js
+    |        ├── courseController.js
+    |        └── lessonController.js
     │   ├── models
+    |        ├── Course.js
+    |        ├── Lesson.js
+    |        └── User.js
     │   ├── routes
+    |        ├── authRoutes.js
+    |        ├── courseRoutes.js
+    |        └── lessonRoutes.js
     │   ├── config
+    |        └── passport.js
+    |   ├── middleware
+    |        ├── adminMiddleware.js
+    |        └── authMiddleware.js
+    |   ├── seed
+    |        └── adminSeed.js
     │   ├── server.js
     │   └── package.json
     │
     ├── frontend
     │   ├── src
+    │   │   ├── components
+    |   |        └── ProtectedRoute.jsx
+    │   │   ├── contexts
+    |   |        └── AuthContext.jsx
     │   │   ├── pages
+    |   |        ├── Courses.jsx
+    |   |        ├── GameLesson.jsx
+    |   |        ├── Home.jsx
+    |   |        ├── Lessons.jsx
+    |   |        ├── Login.jsx
+    |   |        ├── OAuthSuccess.jsx
+    |   |        └── Register.jsx
     │   │   ├── services
+    |   |        ├── authService.js
+    |   |        ├── courseService.js
+    |   |        └── lessonService.js
     │   │   ├── styles
     │   │   ├── App.jsx
     │   │   └── main.jsx
