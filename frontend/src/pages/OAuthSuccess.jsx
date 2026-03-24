@@ -1,27 +1,23 @@
-import { useEffect } from "react"
-import { useNavigate } from "react-router-dom"
+import { useEffect, useContext } from "react"
+import { useNavigate, useLocation } from "react-router-dom"
+import { AuthContext } from "../contexts/AuthContext"
 
-function OAuthSuccess(){
-
+const OAuthSuccess = () => {
+  const { login } = useContext(AuthContext)
   const navigate = useNavigate()
+  const location = useLocation()
 
-  useEffect(()=>{
-
-    const params = new URLSearchParams(window.location.search)
-
+  useEffect(() => {
+    const params = new URLSearchParams(location.search)
     const token = params.get("token")
 
-    if(token){
-      localStorage.setItem("token",token)
-      navigate("/home")
-    }else{
+    if (token) {
+      login(token)
       navigate("/")
     }
+  }, [])
 
-  },[])
-
-  return <p>Logging you in...</p>
-
+  return <p>Logging in...</p>
 }
 
 export default OAuthSuccess
